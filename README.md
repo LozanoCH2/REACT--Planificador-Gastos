@@ -1,50 +1,81 @@
-# React + TypeScript + Vite
+# Proyecto Planificador de Gastos - useReducer y Context API
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este proyecto es un planificador de gastos que permite a los usuarios gestionar su presupuesto y registrar los gastos que han tenido o que planean tener. La aplicación está desarrollada con **React**, **TypeScript** y **Tailwind CSS**, utilizando el hook `useReducer` para la gestión eficiente del estado y **Context API** para englobar y manejar el reducer de manera global.
 
-Currently, two official plugins are available:
+Puedes ver la aplicación en acción [aquí](https://react-planificador-gastos.netlify.app).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tabla de Contenidos
 
-## Expanding the ESLint configuration
+- [Descripción del Proyecto](#descripción-del-proyecto)
+- [Tecnologías Utilizadas](#tecnologías-utilizadas)
+- [Instalación](#instalación)
+- [Funcionalidades](#funcionalidades)
+- [Aprendizaje Clave: useReducer y Context API](#aprendizaje-clave-usereducer-y-context-api)
+- [Créditos](#créditos)
+- [Conclusión](#conclusión)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Descripción del Proyecto
 
-- Configure the top-level `parserOptions` property like this:
+La aplicación de **Planificador de Gastos** permite a los usuarios ingresar un presupuesto inicial y luego agregar gastos a ese presupuesto mediante un modal que despliega un formulario para ingresar los detalles del gasto. A medida que los gastos se van agregando, la aplicación muestra:
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- El **presupuesto inicial**.
+- El **dinero disponible**.
+- El **dinero gastado**.
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+Además, se incluye una gráfica circular que representa el porcentaje de dinero gastado respecto al presupuesto total, permitiendo una visión clara de los gastos. También se pueden **filtrar los gastos por categoría** y **resetear la aplicación** para comenzar de nuevo.
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+## Tecnologías Utilizadas
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+- **React**: Biblioteca de JavaScript para construir interfaces de usuario.
+- **TypeScript**: Lenguaje que añade tipado estático a JavaScript.
+- **Tailwind CSS**: Framework CSS para diseñar interfaces rápidamente.
+- **useReducer**: Hook de React utilizado para manejar el estado de manera eficiente.
+- **Context API**: API de React utilizada para manejar el estado de la aplicación de forma global.
+- **Datepicker, Swipeable, Progressbar, Calendar, Heroicons**: Librerías adicionales utilizadas para mejorar la funcionalidad y la interfaz del proyecto.
+
+## Instalación
+
+Para ejecutar este proyecto localmente, sigue estos pasos:
+
+1. Clona el repositorio:
+    ```bash
+    git clone https://github.com/tuusuario/planificador-gastos.git
+    ```
+2. Navega al directorio del proyecto:
+    ```bash
+    cd planificador-gastos
+    ```
+3. Instala las dependencias:
+    ```bash
+    npm install
+    ```
+4. Inicia el servidor de desarrollo:
+    ```bash
+    npm run dev
+    ```
+
+## Funcionalidades
+
+- **Ingreso de Presupuesto**: El usuario puede definir un presupuesto inicial.
+- **Agregar Gastos**: Los gastos se pueden agregar a través de un modal que permite ingresar el detalle del gasto.
+- **Visualización de Gastos**: La aplicación muestra el presupuesto, el disponible y lo gastado en tiempo real.
+- **Gráfica Circular**: Representación visual del porcentaje de dinero gastado.
+- **Filtrado por Categorías**: Los gastos pueden filtrarse por tipo o categoría.
+- **Resetear Aplicación**: Posibilidad de reiniciar todos los datos de la aplicación.
+
+## Aprendizaje Clave: useReducer y Context API
+
+El uso de `useReducer` en este proyecto permitió una mejor estructuración y manejo del estado, especialmente para acciones como agregar y eliminar gastos, calcular el presupuesto restante, y actualizar los datos de la gráfica circular. Las ventajas de `useReducer` incluyen:
+
+- **Gestión del Estado Compleja**: Permite manejar múltiples acciones en un solo lugar, facilitando la escalabilidad del código.
+- **Manejo Predecible de Acciones**: Con `useReducer`, es más fácil estructurar y prever cómo se manejarán las acciones (como agregar, eliminar o resetear).
+
+Adicionalmente, **Context API** se utilizó para compartir el estado y las acciones del reducer de manera global en toda la aplicación, evitando el paso de props innecesarios y simplificando la estructura de los componentes.
+
+## Créditos
+
+Este proyecto fue desarrollado como parte del curso de React y TypeScript de [codigoconjuan](https://codigoconjuan.com). Agradezco los conocimientos adquiridos a lo largo del curso que me permitieron implementar y optimizar esta aplicación.
+
+## Conclusión
+
+Este proyecto fue una gran oportunidad para seguir profundizando en el uso de `useReducer` y `Context API`, dos herramientas clave para mejorar la organización y eficiencia en las aplicaciones de React. Además, la integración de varias librerías de React permitió una experiencia de usuario más rica y funcional.
